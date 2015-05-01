@@ -196,12 +196,12 @@
 	  <component-plugin>
 	    <name>notification.plugins</name>
 	    <set-method>addChildPlugin</set-method>
-	    <type>org.exoplatform.forum.notification.plugin.AnswerActivityChildPlugin</type>
+	    <type>org.exoplatform.answer.notification.plugin.AnswerActivityChildPlugin</type>
 	    <description>Initial information for answer child notification plugin.</description>
 	    <init-params>
 	      <values-param>
 	        <name>parentIds</name>
-	        <description>The list parent plugin' id</description>
+	        <description>The list of parent plugin's id</description>
 	        <value>LikePlugin</value>
 	        <value>ActivityCommentPlugin</value>
 	      </values-param>
