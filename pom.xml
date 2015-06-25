@@ -30,7 +30,7 @@
   </parent>
   <groupId>org.exoplatform.addons.answers</groupId>
   <artifactId>answers-parent</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.x-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Answers Parent POM</name>
   <description>The Answers add-on parent POM</description>
@@ -39,7 +39,7 @@
     <connection>scm:git:git://github.com/exoplatform/answers.git</connection>
     <developerConnection>scm:git:git@github.com:exoplatform/answers.git</developerConnection>
     <url>https://github.com/exoplatform/answers</url>
-    <tag>1.0.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <modules>
