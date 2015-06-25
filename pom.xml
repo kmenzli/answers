@@ -36,9 +36,9 @@
   <description>The Answers add-on parent POM</description>
 
   <scm>
-    <connection>scm:git:git://github.com/exo-addons/answers.git</connection>
-    <developerConnection>scm:git:git@github.com:exo-addons/answers.git</developerConnection>
-    <url>https://github.com/exo-addons/answers</url>
+    <connection>scm:git:git://github.com/exoplatform/answers.git</connection>
+    <developerConnection>scm:git:git@github.com:exoplatform/answers.git</developerConnection>
+    <url>https://github.com/exoplatform/answers</url>
     <tag>HEAD</tag>
   </scm>
 
