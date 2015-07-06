@@ -5,17 +5,13 @@
       <%
         String classCss = "" ; 
         int i = 0;
-        for(String tabcontent : uicomponent.getChildren()){ 
-          String link = "javascript:void(0);";
+        for(tabcontent in uicomponent.getChildren()){ 
+          String link = uicomponent.event("SelectTab",""+i);
           String tabId = tabcontent.getId();
           String paneId = uicomponent.getId();
-          if(uiform.getIsSelected(i)) classCss = "active" ;
-          else {
-            classCss = "" ;
-            link = uicomponent.event("SelectTab",""+i) ;
-          }
+          classCss = (uiform.getIsSelected(i)) ? "active" : "";
       %> 
-        <li class="$classCss" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '$paneId', '$tabId');$link">              
+        <li class="$classCss" onclick="$link">              
             <a data-toggle="tab" data-target="#$tabId-tab"><%=_ctx.appRes(uiform.id + ".label." + tabcontent.id); %></a>
         </li>   
       <% i++; } %>
