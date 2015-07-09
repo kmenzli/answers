@@ -8,7 +8,7 @@
       <%
         String classCss = "" ; 
         int i = 0;
-        for(String tabcontent : uicomponent.getChildren()){ 
+        for(def tabcontent : uicomponent.getChildren()){ 
           String tabId = tabcontent.getId();
           String paneId = uicomponent.getId();
           if(uicomponent.tabId.equals(tabcontent.id)) classCss = "active" ;
