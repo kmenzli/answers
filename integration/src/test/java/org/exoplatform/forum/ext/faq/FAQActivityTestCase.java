@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
-
 import org.exoplatform.answer.ext.impl.AnswersSpaceActivityPublisher;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.faq.service.Answer;
@@ -531,7 +530,7 @@ public class FAQActivityTestCase extends FAQServiceBaseTestCase {
     space.setPendingUsers(pendingUsers);
     space.setManagers(managers);
     space.setMembers(members);
-    spaceService.saveSpace(space, true);
+    spaceService.createSpace(space, USER_ROOT);
     return space;
   }
   

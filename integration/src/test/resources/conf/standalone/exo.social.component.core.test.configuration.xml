@@ -89,6 +89,11 @@
   </component>
   
   <component>
+    <key>org.exoplatform.services.jcr.ext.app.SessionProviderService</key>
+    <type>org.exoplatform.services.jcr.ext.app.ThreadLocalSessionProviderService</type>
+  </component>
+  
+  <component>
     <key>org.exoplatform.social.core.application.RelationshipPublisher</key>
     <type>org.exoplatform.social.core.application.RelationshipPublisher</type>
   </component>
@@ -113,8 +118,57 @@
       </value-param>
     </init-params>
   </component>
+  
+  <component>
+    <key>org.exoplatform.social.common.service.thread.ThreadPoolConfig</key>
+    <type>org.exoplatform.social.common.service.thread.ThreadPoolConfig</type>
+    <init-params>
+      <value-param>
+        <name>pool-size</name>
+        <value>1</value>
+      </value-param>
+      <value-param>
+        <name>max-pool-size</name>
+        <value>1</value>
+      </value-param>
+      <value-param>
+        <name>async-mode</name>
+        <value>false</value>
+      </value-param>
+      <value-param>
+        <name>thread-priority</name>
+        <value>10</value>
+      </value-param>
+    </init-params>
+  </component>
+  
+  <component>
+    <key>org.exoplatform.social.core.storage.streams.StreamConfig</key>
+    <type>org.exoplatform.social.core.storage.streams.StreamConfig</type>
+    <init-params>
+      <value-param>
+        <name>connections-threshold-param</name>
+        <value>1000</value> <!-- connections threshold -->
+      </value-param>
+      <value-param>
+        <name>last-login-around-days</name>
+        <value>15</value> <!-- the last login around days of an user -->
+      </value-param>
+      <value-param>
+        <name>limit-per-loading-param</name>
+        <value>10</value><!-- batch limit to persist to storage when CRUD node -->
+      </value-param>
+      <!-- /platform/administrators,/platform/users -->
+      <!--
+      <value-param>
+        <name>active-user-groups-param</name>
+        <value>/platform/administrators</value>
+      </value-param>
+      -->
+    </init-params>
+  </component>
 
- <!--
+  <!--
     Activity Stream storage components.
   -->
   <component>
@@ -177,6 +231,14 @@
     <key>org.exoplatform.social.core.storage.impl.SpaceStorageImpl</key>
     <type>org.exoplatform.social.core.storage.synchronization.SynchronizedSpaceStorage</type>
   </component>
+  
+  <component>
+    <type>org.exoplatform.social.core.updater.UserActivityStreamMigration</type>
+  </component>
+  
+  <component>
+    <type>org.exoplatform.social.core.updater.SpaceActivityStreamMigration</type>
+  </component>
 
   <component>
     <key>org.exoplatform.social.core.service.LinkProvider</key>
@@ -234,6 +296,10 @@
   </component>
 
   <component>
+    <type>org.exoplatform.social.core.identity.provider.FakeIdentityProvider</type>
+  </component>
+  
+  <component>
     <key>org.exoplatform.social.core.manager.IdentityManager</key>
     <type>org.exoplatform.social.core.manager.IdentityManagerImpl</type>
     <component-plugins>
@@ -246,6 +312,7 @@
           <name>providers</name>
             <description>Identity Providers</description>
             <value>org.exoplatform.social.core.identity.provider.SpaceIdentityProvider</value>
+            <value>org.exoplatform.social.core.identity.provider.FakeIdentityProvider</value>
           </values-param>
         </init-params>
       </component-plugin>
@@ -566,9 +633,16 @@
       <type>org.exoplatform.social.common.xmlprocessor.filters.LineBreakerFilterPlugin</type>
     </component-plugin>
     <component-plugin>
-      <name>LineBreakerFilterPlugin</name>
+      <name>URLConverterFilterPlugin</name>
       <set-method>addFilterPlugin</set-method>
       <type>org.exoplatform.social.common.xmlprocessor.filters.URLConverterFilterPlugin</type>
+      <init-params>
+        <value-param>
+          <name>urlMaxLength</name>
+          <description>the max length of URL</description>
+          <value>-1</value>
+        </value-param>
+      </init-params>
     </component-plugin>
   </external-component-plugins>
 
@@ -604,6 +678,7 @@
           <name>autoCreatedInNewRepository</name>
           <description>Node types configuration file</description>
           <value>jar:/conf/portal/chromattic-nodetypes.xml</value>
+          <value>jar:/conf/standalone/nodetypes-override-init.xml</value>
         </values-param>
       </init-params>
     </component-plugin>
@@ -629,6 +704,7 @@
           <value>org.exoplatform.social.core.chromattic.entity.ProviderRootEntity</value>
           <value>org.exoplatform.social.core.chromattic.entity.ProviderEntity</value>
 
+          <value>org.exoplatform.social.core.chromattic.entity.DisabledEntity</value>
           <value>org.exoplatform.social.core.chromattic.entity.IdentityEntity</value>
           <value>org.exoplatform.social.core.chromattic.entity.ProfileEntity</value>
           <value>org.exoplatform.social.core.chromattic.entity.ActivityProfileEntity</value>
