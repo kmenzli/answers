@@ -735,7 +735,7 @@
 														<% if(answer.getActivateAnswers()) { %>
 													<li>
 														<a  href="javascript:void(0);" onclick="$actionActivate">
-															<i class="uiIconAnsLightGray uiIconAnsEnable" ></i>&nbsp;<%=_ctx.appRes("UIQuestionsInfo.title.UnActivated")%>
+															<i class="uiIconAnsLightGray uiIconAnsDisable" ></i>&nbsp;<%=_ctx.appRes("UIQuestionsInfo.title.UnActivated")%>
 														</a>
 													</li>
 															<%} else { %>
