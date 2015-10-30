@@ -16,7 +16,7 @@
 
 [class^="uiIconAns"],
 .LeftNavigationTDContainer .uiPopup [class^="uiIconAns"]{
-  background-image: url("@{images-path-answer}/uiIconsAnsDefault.png");
+  color: @colorIconDefault;
 }
 
 /* Blue icons with optional class, or on hover/active states of certain elements */
@@ -34,7 +34,7 @@
 [class^="uiIconAns"]:hover,
 .uiIconAnsBlue
 {
-  background-image: url("@{images-path-answer}/uiIconsAnsPrimary.png");
+  color: @colorIconPrimary;
 }
 
 /* light grey icons with optional class, or on  */
@@ -47,11 +47,11 @@
 .answerToolbar [class^="uiIconAns"],
 .uiIconAnsLightGray
 {
-  background-image: url("@{images-path-answer}/uiIconsAnsDefault.png");
+  color: @colorIconDefault;
 }
 
 .uiIconAnsDarkGray, .uiIconAnsExtra, .LeftNavigationTDContainer [class^="uiIconAns"]{
-  background-image: url("@{images-path-answer}/uiIconsAnsExtra.png");
+  color: @colorIconExtra;
 }
 
 /* White icons with optional class, or on hover/active states of Drop down with Icons */
@@ -65,86 +65,121 @@
 .btn-primary [class^="uiIconAns"],
 .btn-primary:hover [class^="uiIconAns"], .uiIconAnsWhite
 {
-  background-image: url("@{images-path-answer}/uiIconsAnsSecondary.png");
+  color: @colorIconSecondary;
 }
 
-[class^="uiIconAnwserColor"] {
-	background-image: url("@{images-path-answer}/uiIconsAnswerColor.png");
+/*[class^="uiIconAnwserColor"] {
+  //background-image: url("@{images-path-answer}/uiIconsAnswerColor.png");
 }
 
 .dropdown > a:hover > [class^="uiIconAnwserColor"],
 [class^="uiIconAnwserColor"]:hover,
 a:hover > [class^="uiIconAnwserColor"],
 i:hover [class^="uiIconAnwserColor"]{
-	background-image: url("@{images-path-answer}/uiIconsAnswerColor.png");
+	//background-image: url("@{images-path-answer}/uiIconsAnswerColor.png");
+}*/
+
+.uiIconAnsSubmitQuestion:before,
+.uiIconAnsAddNewQuestion:before {
+  content: "\e60c";
 }
 
-.uiIconAnsSubmitQuestion,
-.uiIconAnsAddNewQuestion {
-	background-position: -20px 0;
+.uiIconAnsManageCategory:before {
+  content: "\e6aa";
 }
 
-.uiIconAnsManageCategory {
-	background-position: 0px 0;
+.uiIconAnsSentMail:before {
+  content: "\e60b";
 }
 
-.uiIconAnsSentMail {
-	background-position: -60px 0;
+.uiIconAnsManageQuestion:before {
+  content: "\e609";
+}
+.uiIconAnsThumbDownMini:before {
+  content: "\e77d";
+}
+.uiIconAnsThumbUpMini:before {
+  content: "\e77e";
+}
+.uiIconAnsAnswer:before {
+  content: "\e605";
+}
+.uiIconAnsApprove:before {
+  content: "\e606";
+}
+.uiIconAnsDisapprove:before {
+  content: "\e607";
+}
+.uiIconAnsPromte:before {
+  content: "\e60a";
 }
 
-.uiIconAnsManageQuestion {
-	background-position: -40px 0;
-}
-.uiIconAnsThumbDownMini {
-	background-position: -20px -20px;
-}
-.uiIconAnsThumbUpMini {
-	background-position: 0px -20px;
-}
-.uiIconAnsAnswer {
-	background-position: -40px -20px;
-}
-.uiIconAnsApprove {
-	background-position: -100px 0px;
-}
-.uiIconAnsDisapprove {
-	background-position: -120px 0px;
-}
-.uiIconAnsPromte {
-	background-position: -180px 0px;
-}
-
-.uiIconAnsEnable {
-	background-position: -140px 0px;
+.uiIconAnsEnable:before {
+  content: "\e608";
 }  
-.uiIconAnsDisable {
-	background-position: -160px 0px;
-}  
-
-.uiIconAnwserColorCloseTiny{
-	background-position: 0 0;
+.uiIconAnsDisable:before {
+  content: "\e603";
 }
 
-.uiIconAnwserColorLockTiny{
-	background-position: -20px 0;
+.uiIconAnwserColorCloseTiny:before,
+.dropdown > a:hover > .uiIconAnwserColorCloseTiny:before,
+.uiIconAnwserColorCloseTiny:hover:before,
+a:hover > .uiIconAnwserColorCloseTiny:before,
+i:hover .uiIconAnwserColorCloseTiny:before {
+  content: "\e768";
+  color: @colorIconDefault;
 }
 
-.uiIconAnwserColorOffline{
-	background-position: -40px 0;
+.uiIconAnwserColorLockTiny:before,
+.dropdown > a:hover > .uiIconAnwserColorLockTiny:before,
+.uiIconAnwserColorLockTiny:hover:before,
+a:hover > .uiIconAnwserColorLockTiny:before,
+i:hover .uiIconAnwserColorLockTiny:before {
+  content: "\e794";
+  color: @colorIconDefault;
 }
 
-.uiIconAnwserColorUnread{
-	background-position: -60px 0;
+.uiIconAnwserColorOffline:before,
+.dropdown > a:hover > .uiIconAnwserColorOffline:before,
+.uiIconAnwserColorOffline:hover:before,
+a:hover > .uiIconAnwserColorOffline:before,
+i:hover .uiIconAnwserColorOffline:before {
+  content: "\e76e";
+  color: @colorIconDefault;
 }
 
-.uiIconAnwserColorOnline{
-	background-position: -80px 0;
+.uiIconAnwserColorUnread:before,
+.dropdown > a:hover > .uiIconAnwserColorUnread:before,
+.uiIconAnwserColorUnread:hover:before,
+a:hover > .uiIconAnwserColorUnread:before,
+i:hover .uiIconAnwserColorUnread:before{
+  content: "\e76e";
+  color: @colorIconPrimary;
 }
 
-.uiIconAnwserColorAway{
-	background-position: -100px 0;
+.uiIconAnwserColorOnline:before,
+.dropdown > a:hover > .uiIconAnwserColorOnline:before,
+.uiIconAnwserColorOnline:hover:before,
+a:hover > .uiIconAnwserColorOnline:before,
+i:hover .uiIconAnwserColorOnline:before {
+  content: "\e76e";
+  color: @colorIconGreen;
 }
 
-.uiIconAnwserColorBusy{
-	background-position: -120px 0;
+.uiIconAnwserColorAway:before,
+.dropdown > a:hover > .uiIconAnwserColorAway:before,
+.uiIconAnwserColorAway:hover:before,
+a:hover > .uiIconAnwserColorAway:before,
+i:hover .uiIconAnwserColorAway:before {
+  content: "\e76e";
+  color: @colorIconOrange;
+}
+
+.uiIconAnwserColorBusy:before,
+.dropdown > a:hover > .uiIconAnwserColorBusy:before,
+.uiIconAnwserColorBusy:hover:before,
+a:hover > .uiIconAnwserColorBusy:before,
+i:hover .uiIconAnwserColorBusy:before {
+  content: "\e76e";
+  color: @colorIconRed;
 }
