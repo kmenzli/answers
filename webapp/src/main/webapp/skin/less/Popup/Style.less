@@ -209,8 +209,17 @@
 		margin-left: 10px;
 	}
 	.editorContainer {
-		width: 93%;
+		width: 92%;
 		margin-right: 5px;
+		position: relative;
+		.clearfix > span:last-child{
+			position: absolute;
+		}
+	}
+	.editorContainer + .pull-left {
+		.actionIcon{
+			margin-top: -7px;
+		}
 	}
 	.actionButtonGroup {
 			margin-bottom: 20px;
@@ -234,6 +243,11 @@
 		}
 		.uiTabContentContainer {
           border-radius: 0;
+		}
+	}
+	.viewQuestionsToSelect{
+		.uiTrees .treeContainer .node .uiIconNode:before{
+			top: 6px;
 		}
 	}
 
