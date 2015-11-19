@@ -22,6 +22,10 @@ import org.exoplatform.forum.common.user.CommonContact;
 import org.exoplatform.forum.common.user.ContactProvider;
 import org.exoplatform.forum.common.webui.UIPopupAction;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.services.user.UserStateService;
+import org.exoplatform.social.core.identity.model.Profile;
+import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
+import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPopupComponent;
@@ -67,6 +71,17 @@ public class UIViewUserProfile extends UIForm implements UIPopupComponent {
     } catch (Exception e) {
       return new CommonContact();
     }
+  }
+
+  public String getUserProfileURL(String username) {
+    IdentityManager identityManager = getApplicationComponent(IdentityManager.class);
+    Profile profile = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, username, false).getProfile();
+    return profile.getUrl();
+  }
+
+  public boolean isOnline(String userId) {
+    UserStateService userStateService = getApplicationComponent(UserStateService.class);
+    return userStateService.isOnline(userId);
   }
 
   public void activate() {
