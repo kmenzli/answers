@@ -167,7 +167,7 @@ public class DataStorageTestCase extends FAQServiceBaseTestCase {
     Answer answer2 = createAnswer(USER_DEMO, "Demo answers a question");
     
     //
-    dataStorage.saveAnswer(questionPath1, new Answer[] { answer1, answer2 });
+    dataStorage.saveAnswer(questionPath1, new Answer[] { answer1, answer2 }, null);
     assertEquals(2, dataStorage.getPageListAnswer(questionPath1, false).getAll().size());
     
     //
@@ -206,7 +206,7 @@ public class DataStorageTestCase extends FAQServiceBaseTestCase {
     Answer answer12 = createAnswer(USER_DEMO, "Answer12");
     
     //
-    dataStorage.saveAnswer(questionPath2, new Answer[] { answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12 });
+    dataStorage.saveAnswer(questionPath2, new Answer[] { answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11, answer12 }, null);
     JCRPageList pageListAnswer = dataStorage.getPageListAnswer(questionPath2, false);
     assertEquals(12, pageListAnswer.getAll().size());
     assertEquals(10, pageListAnswer.getPageSize());
@@ -239,7 +239,7 @@ public class DataStorageTestCase extends FAQServiceBaseTestCase {
     
     //
     assertNull(dataStorage.getPageListAnswer(questionPath4, false));
-    dataStorage.saveAnswer(questionPath4, new Answer[] { answer1, answer2, answer3 });
+    dataStorage.saveAnswer(questionPath4, new Answer[] { answer1, answer2, answer3 }, null);
     assertEquals(3, dataStorage.getPageListAnswer(questionPath4, false).getAll().size());
   }
   
@@ -265,7 +265,7 @@ public class DataStorageTestCase extends FAQServiceBaseTestCase {
     
     //
     String question1Id = categoryId1 + "/" + Utils.QUESTION_HOME + "/" + questionId1;
-    dataStorage.saveAnswer(question1Id, new Answer[] { answer1, answer2 });
+    dataStorage.saveAnswer(question1Id, new Answer[] { answer1, answer2 }, null);
     
     //
     Answer got = dataStorage.getAnswerById(question1Id, answer1.getId());
@@ -1059,7 +1059,7 @@ public class DataStorageTestCase extends FAQServiceBaseTestCase {
   public void testIsModerateAnswer() throws Exception {
     Answer answer1 = createAnswer(USER_ROOT, "Root answers a question");
     Answer answer2 = createAnswer(USER_DEMO, "Demo answers a question");
-    dataStorage.saveAnswer(questionPath1, new Answer[] {answer1, answer2});
+    dataStorage.saveAnswer(questionPath1, new Answer[] {answer1, answer2}, null);
     assertFalse(dataStorage.isModerateAnswer(questionId1 + "/" + Utils.ANSWER_HOME + "/" + answer1.getId()));
     assertFalse(dataStorage.isModerateAnswer(questionId1 + "/" + Utils.ANSWER_HOME + "/" + answer2.getId()));
   }

@@ -587,7 +587,7 @@ public interface FAQService extends FAQServiceLegacy {
    * @throws Exception
    * @LevelAPI Platform
    */
-  public void saveAnswer(String questionId, Answer[] answers) throws Exception;
+  public void saveAnswer(String questionId, Answer[] answers, FAQSetting faqSetting) throws Exception;
 
   /**
    * Gets comments of a question.

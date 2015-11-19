@@ -431,7 +431,7 @@ public class UIResponseForm extends BaseUIFAQForm implements UIPopupComponent {
         } catch (Exception e) {
           responseForm.log.error("Can not discuss question into forum, exception: ", e);
         }
-        responseForm.getFAQService().saveAnswer(question.getPath(), answers);
+        responseForm.getFAQService().saveAnswer(question.getPath(), answers, responseForm.faqSetting_);
         responseForm.getFAQService().updateQuestionRelatives(question.getPath(), responseForm.listQuestIdRela.toArray(new String[responseForm.listQuestIdRela.size()]));
         if (!responseForm.isModerator && !responseForm.isAnswerApproved){
           responseForm.info("UIResponseForm.msg.pending-for-moderation", false);

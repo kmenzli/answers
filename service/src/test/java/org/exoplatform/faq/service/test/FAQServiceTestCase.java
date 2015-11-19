@@ -454,7 +454,7 @@ public class FAQServiceTestCase extends FAQServiceBaseTestCase {
 
     // Save answer:
     String questionId = categoryId1 + "/" + Utils.QUESTION_HOME + "/" + questionId1;
-    faqService_.saveAnswer(questionId, new Answer[] { answer1, answer2 });
+    faqService_.saveAnswer(questionId, new Answer[] { answer1, answer2 }, null);
 
     // Get answer by id:
     assertNotNull("Answer 2 have not been added", faqService_.getAnswerById(questionId, answer2.getId()));

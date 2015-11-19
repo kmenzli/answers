@@ -957,11 +957,11 @@ public class FAQServiceImpl implements FAQService, Startable {
    */
   public void saveAnswer(String questionId, Answer[] answers, SessionProvider sProvider) throws Exception {
     sProvider.close();
-    saveAnswer(questionId, answers);
+    saveAnswer(questionId, answers, (FAQSetting)null);
   }
 
   //This action will be called when a response is added or modified
-  public void saveAnswer(String questionId, Answer[] answers) throws Exception {
+  public void saveAnswer(String questionId, Answer[] answers, FAQSetting faqSetting) throws Exception {
     for (Answer answer : answers) {
       Answer oldAnswer = getAnswerById(questionId, answer.getId());
       if (oldAnswer != null) {
@@ -971,7 +971,7 @@ public class FAQServiceImpl implements FAQService, Startable {
         answer.setPcs(oldAnswer.getPcs());
       }
     }
-    jcrData_.saveAnswer(questionId, answers);
+    jcrData_.saveAnswer(questionId, answers, faqSetting);
     for (AnswerEventListener ae : listeners_) {
       ae.saveAnswer(questionId, answers, true);
     }

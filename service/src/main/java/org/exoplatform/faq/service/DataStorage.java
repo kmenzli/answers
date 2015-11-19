@@ -69,7 +69,7 @@ public interface DataStorage {
 
   void saveAnswer(String questionId, Answer answer, boolean isNew) throws Exception;
 
-  void saveAnswer(String questionId, Answer[] answers) throws Exception;
+  void saveAnswer(String questionId, Answer[] answers, FAQSetting faqSetting) throws Exception;
 
   void saveComment(String questionId, Comment comment, boolean isNew) throws Exception;
 

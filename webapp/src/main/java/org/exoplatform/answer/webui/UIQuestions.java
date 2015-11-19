@@ -1267,7 +1267,7 @@ public class UIQuestions extends UIContainer {
             if (answers[i].getLanguage() == null)
               answers[i].setLanguage(question.getLanguage());
           }
-          uiForm.getFAQService().saveAnswer(questionId, answers);
+          uiForm.getFAQService().saveAnswer(questionId, answers, null);
         }
 
         Comment[] comments = question.getComments();

@@ -376,7 +376,7 @@ public class FAQActivityTestCase extends FAQServiceBaseTestCase {
     //create answer
     Answer answer = createAnswer("john", "Response of the previous question");
     question.setAnswers(new Answer[] { answer });
-    faqService_.saveAnswer(questionPath, question.getAnswers());
+    faqService_.saveAnswer(questionPath, question.getAnswers(), null);
     activity = getManager().getActivity(activityId);
     List<ExoSocialActivity> comments = getManager().getCommentsWithListAccess(activity).loadAsList(0, 10);
     assertEquals(1,comments.size());
@@ -387,7 +387,7 @@ public class FAQActivityTestCase extends FAQServiceBaseTestCase {
     answer.setLanguage("English");
     answer.setResponses("New response");
     question.setAnswers(new Answer[] { answer });
-    faqService_.saveAnswer(questionPath, question.getAnswers());
+    faqService_.saveAnswer(questionPath, question.getAnswers(), null);
     activity = getManager().getActivity(activityId);
     comments = getManager().getCommentsWithListAccess(activity).loadAsList(0, 10);
     assertEquals(2,comments.size());
@@ -396,7 +396,7 @@ public class FAQActivityTestCase extends FAQServiceBaseTestCase {
     //create new answer
     Answer answer2 = createAnswer("demo", "Response 2 of the previous question");
     question.setAnswers(new Answer[] { answer2 });
-    faqService_.saveAnswer(questionPath, question.getAnswers());
+    faqService_.saveAnswer(questionPath, question.getAnswers(), null);
     activity = getManager().getActivity(activityId);
     comments = getManager().getCommentsWithListAccess(activity).loadAsList(0, 10);
     assertEquals(3,comments.size());
@@ -414,7 +414,7 @@ public class FAQActivityTestCase extends FAQServiceBaseTestCase {
     assertNull(activity);
     Answer answer3 = createAnswer("demo", "Response 3 of the previous question");
     question.setAnswers(new Answer[] { answer3 });
-    faqService_.saveAnswer(questionPath, question.getAnswers());
+    faqService_.saveAnswer(questionPath, question.getAnswers(), null);
     String newActivityId = faqService_.getActivityIdForQuestion(question.getCategoryPath() + "/" + question.getId());
     activity = getManager().getActivity(newActivityId);
     comments = getManager().getCommentsWithListAccess(activity).loadAsList(0, 10);

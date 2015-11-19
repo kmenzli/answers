@@ -611,14 +611,15 @@ public class JCRDataStorage implements DataStorage, FAQNodeTypes {
   @Override
   public void saveAnswer(String questionId, Answer answer, boolean isNew) throws Exception {
     Answer[] answers = { answer };
-    saveAnswer(questionId, answers);
+    saveAnswer(questionId, answers, null);
   }
 
   @Override
-  public void saveAnswer(String questionId, Answer[] answers) throws Exception {
+  public void saveAnswer(String questionId, Answer[] answers, FAQSetting faqSetting) throws Exception {
     SessionProvider sProvider = CommonUtils.createSystemProvider();
     try {
       Node quesNode = getFAQServiceHome(sProvider).getNode(questionId);
+      Question question = getQuestion(quesNode);
       if (!quesNode.isNodeType(MIX_FAQI_1_8N)) {
         quesNode.addMixin(MIX_FAQI_1_8N);
       }
@@ -646,6 +647,12 @@ public class JCRDataStorage implements DataStorage, FAQNodeTypes {
         saveAnswer(answer, answerHome, qId, categoryId);
       }
       quesNode.save();
+
+      if (faqSetting != null) {
+        question.setAnswers(answers);
+        sendNotifyWatcher(sProvider, question, faqSetting, false);
+      }
+
     } catch (Exception e) {
       log.error("Failed to save answer: ", e);
     }
