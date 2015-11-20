@@ -26,6 +26,7 @@ import java.util.Set;
 
 import javax.jcr.PathNotFoundException;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.exoplatform.answer.rendering.RenderHelper;
 import org.exoplatform.answer.webui.BaseUIFAQForm;
 import org.exoplatform.answer.webui.FAQUtils;
@@ -374,6 +375,7 @@ public class UIResponseForm extends BaseUIFAQForm implements UIPopupComponent {
       UIResponseForm responseForm = event.getSource();
       String language = responseForm.questionLanguages_.getValue();
       String responseQuestionContent = responseForm.inputResponseQuestion_.getValue();
+      responseQuestionContent = StringEscapeUtils.unescapeHtml4(responseQuestionContent);
       responseQuestionContent = CommonUtils.encodeSpecialCharInSearchTerm(responseQuestionContent);
       Answer answer;
       if (ValidatorDataInput.fckContentIsNotEmpty(responseQuestionContent)) {

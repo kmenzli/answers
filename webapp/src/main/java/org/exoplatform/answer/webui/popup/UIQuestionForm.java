@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.exoplatform.answer.webui.BaseUIFAQForm;
 import org.exoplatform.answer.webui.FAQUtils;
 import org.exoplatform.answer.webui.UIAnswersContainer;
@@ -560,6 +561,7 @@ public class UIQuestionForm extends BaseUIFAQForm implements UIPopupComponent {
             questionForm.mapLanguage.get(language).setState(QuestionLanguage.DELETE);
           }
         }
+        questionDetail = StringEscapeUtils.unescapeHtml4(questionDetail);
         questionDetail = CommonUtils.encodeSpecialCharInSearchTerm(questionDetail);
         questionContent = CommonUtils.encodeSpecialCharInTitle(questionContent);
 
