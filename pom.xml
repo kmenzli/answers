@@ -26,7 +26,7 @@
   <parent>
     <groupId>org.exoplatform.addons</groupId>
     <artifactId>addons-parent-pom</artifactId>
-    <version>4</version>
+    <version>6</version>
   </parent>
   <groupId>org.exoplatform.addons.answers</groupId>
   <artifactId>answers-parent</artifactId>
@@ -36,9 +36,9 @@
   <description>The Answers add-on parent POM</description>
 
   <scm>
-    <connection>scm:git:git://github.com/exo-addons/answers.git</connection>
-    <developerConnection>scm:git:git@github.com:exo-addons/answers.git</developerConnection>
-    <url>https://github.com/exo-addons/answers</url>
+    <connection>scm:git:git://github.com/exoplatform/answers.git</connection>
+    <developerConnection>scm:git:git@github.com:exoplatform/answers.git</developerConnection>
+    <url>https://github.com/exoplatform/answers</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -62,7 +62,7 @@
     <jenkins.job.name>addon-answers-master-ci</jenkins.job.name>
     <!-- **************************************** -->
     <!-- Dependencies versions -->
-    <!-- **************************************** -->   
+    <!-- **************************************** -->
     <exoplatform.version>4.3.x-SNAPSHOT</exoplatform.version>
     <!-- For surefire and failsafe to be compatible with jacoco -->
     <argLine>-Xmx1024m -XX:MaxPermSize=512m</argLine>
