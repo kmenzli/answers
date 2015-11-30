@@ -63,7 +63,7 @@
     <!-- **************************************** -->
     <!-- Dependencies versions -->
     <!-- **************************************** -->
-    <exoplatform.version>4.3.x-SNAPSHOT</exoplatform.version>
+    <exoplatform.version>4.3.0-RC1-1</exoplatform.version>
     <!-- For surefire and failsafe to be compatible with jacoco -->
     <argLine>-Xmx1024m -XX:MaxPermSize=512m</argLine>
   </properties>
