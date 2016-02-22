@@ -758,17 +758,6 @@ public class FAQEventQuery implements FAQNodeTypes {
     return queryString;
   }
 
-  /**
-  * This method check date time user input interface 
-  * Sets the date from to.
-  * 
-  * @param fromDate the from date
-  * @param toDate the to date
-  * @param property the property
-  * 
-  * @return the string
-  */
-
   public void setViewingCategories(List<String> viewingCategories) {
     this.viewingCategories = viewingCategories;
   }

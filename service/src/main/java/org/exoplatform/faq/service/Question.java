@@ -574,7 +574,7 @@ public class Question {
   /**
    * Sets the path topic discuss.
    * 
-   * @param pathTopicDiscus the new path topic discuss
+   * @param topicIdDiscuss the new path topic discuss
    */
   public void setTopicIdDiscuss(String topicIdDiscuss) {
     this.topicIdDiscuss = topicIdDiscuss;

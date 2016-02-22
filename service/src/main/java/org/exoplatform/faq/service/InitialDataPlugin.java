@@ -39,7 +39,7 @@ import org.exoplatform.services.log.Log;
 
 /**
  * A plugin to initialize FAQ data from xml export. By default the data will be imported to root category only if it does not already exist
- * <value-params> are : 
+ * {@code <value-params>} are :
  * <ul>
  * <li><strong>location</strong> : configuration url for the data to import</li>
  * <li><strong>forceXML</strong> (optional) : indicates if  XML data should override existing data</li>

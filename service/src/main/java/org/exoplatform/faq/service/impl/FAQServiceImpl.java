@@ -252,7 +252,6 @@ public class FAQServiceImpl implements FAQService, Startable {
    * @param    categoryId is address id of the category so you want get
    * @param    sProvider
    * @return  category is id equal categoryId
-   * @see     current category
    * @throws Exception the exception
    */
   public Category getCategoryById(String categoryId, SessionProvider sProvider) throws Exception {
@@ -266,7 +265,7 @@ public class FAQServiceImpl implements FAQService, Startable {
 
   /**
    * This method should get question node via identify
-   * @param   question identify
+   * @param   questionId Question identifier
    * @param    sProvider
    * @return   Question
    * @throws Exception the exception 
@@ -288,7 +287,7 @@ public class FAQServiceImpl implements FAQService, Startable {
    * This method should view questions, only question node is activated and approved  via category identify
    * and convert to list of question object
    * 
-   * @param    Category identify
+   * @param    categoryId Category identifier
    * @param    sProvider
    * @return   QuestionPageList
    * @throws Exception the exception
@@ -305,7 +304,7 @@ public class FAQServiceImpl implements FAQService, Startable {
   /**
    * This method get all questions via category identify and convert to list of question list
    * 
-   * @param   Category identify
+   * @param   categoryId Category identifier
    * @param    sProvider
    * @return   QuestionPageList
    * @throws Exception the exception
@@ -350,7 +349,7 @@ public class FAQServiceImpl implements FAQService, Startable {
    * This method should lookup languageNode of question
    * and find all child node of language node
    * 
-   * @param   Question identify
+   * @param   questionId Question identifier
    * @param    sProvider
    * @return   language list
    * @throws Exception the exception
@@ -425,8 +424,8 @@ public class FAQServiceImpl implements FAQService, Startable {
    * This method should lookup questions via question identify and from category identify
    * so lookup destination category and move questions to destination category
    * 
-   * @param Question identify list
-   * @param destination category identify
+   * @param questions Question identifier list
+   * @param destCategoryId category identifier
    * @param sProvider
    * @throws Exception the exception
    */
@@ -474,7 +473,7 @@ public class FAQServiceImpl implements FAQService, Startable {
    * <p>
    * This function is used to remove one question in list
    * 
-   * @param    question identify
+   * @param    questionId question identifier
    * @param    sProvider
    * @throws Exception the exception
    */
@@ -502,7 +501,6 @@ public class FAQServiceImpl implements FAQService, Startable {
    * @param    cat is properties that user input to interface will save on data
    * @param    isAddNew is true when add new category else update category
    * @param    sProvider
-   * @return  List parent category or list sub category
    * @see     list category
    * @throws Exception the exception
    */
@@ -574,9 +572,9 @@ public class FAQServiceImpl implements FAQService, Startable {
    * <p>
    * This function is used(Users of FAQ Administrator) choose some properties in object FAQSetting
    * 
-   * @param   newSetting is properties of object FAQSetting that user input to interface will save on data
+   * @param   faqSetting is properties of object FAQSetting that user input to interface will save on data
+   * @param   userName
    * @param   sProvider
-   * @return all value depend FAQSetting will configuration follow properties but user choose
    * @throws Exception the exception
    */
   public void saveFAQSetting(FAQSetting faqSetting, String userName, SessionProvider sProvider) throws Exception {
@@ -597,8 +595,6 @@ public class FAQServiceImpl implements FAQService, Startable {
    * @param    categoryId is address id of the category that user want plate
    * @param    destCategoryId is address id of the category that user want put( destination )
    * @param    sProvider
-   * @return  category will put new plate
-   * @see     no see category this plate but user see that category at new plate
    * @throws Exception the exception
    */
   public void moveCategory(String categoryId, String destCategoryId, SessionProvider sProvider) throws Exception {
@@ -616,7 +612,7 @@ public class FAQServiceImpl implements FAQService, Startable {
    * in the category or new category then there will  a notification sent to you.
    * 
    * @param    id of category with user want add watch on that category 
-   * @param    value, this address email (multiple value) with input to interface will save on data
+   * @param    watch, this address email (multiple value) with input to interface will save on data
    * @param    sProvider
    * @throws Exception the exception
    *  
@@ -649,7 +645,7 @@ public class FAQServiceImpl implements FAQService, Startable {
    * 
    * @param   categoryId is id of current category
    * @param   sProvider
-   * @param   emails is location current of one watch with user want delete 
+   * @param   user is location current of one watch with user want delete
    * @throws Exception the exception
    */
   public void deleteMailInWatch(String categoryId, SessionProvider sProvider, String user) throws Exception {
@@ -666,7 +662,7 @@ public class FAQServiceImpl implements FAQService, Startable {
    * 
    * @param   categoryId is id of current category
    * @param   sProvider
-   * @param   emails is location current of one watch with user want delete 
+   * @param   userCurrent is location current of one watch with user want delete
    * @throws Exception the exception
    */
   public void UnWatch(String categoryId, SessionProvider sProvider, String userCurrent) throws Exception {
@@ -681,9 +677,9 @@ public class FAQServiceImpl implements FAQService, Startable {
   /**
    * This function will un watch in one category 
    * 
-   * @param   categoryId is id of current category
+   * @param   questionID is id of current question
    * @param   sProvider
-   * @param   emails is location current of one watch with user want delete 
+   * @param   userCurrent is location current of one watch with user want delete
    * @throws Exception the exception
    */
   public void UnWatchQuestion(String questionID, SessionProvider sProvider, String userCurrent) throws Exception {
@@ -721,8 +717,7 @@ public class FAQServiceImpl implements FAQService, Startable {
    * So to support to users can find their questions more quickly and accurate,
    *  user can use 'Search Question' function
    * 
-   * @param   sProvider
-   * @param   eventQuery is object save value in form advanced search 
+   * @param   eventQuery is object save value in form advanced search
    * @throws Exception the exception
    */
 
@@ -752,8 +747,8 @@ public class FAQServiceImpl implements FAQService, Startable {
 
   /**
    * This method return path of category identify
-   * @param  category identify
-   * @param   sProvider
+   * @param  sProvider
+   * @param  categoryId category identifier
    * @return list category name is sort(path of this category)
    * @throws Exception the exception
    */
@@ -953,7 +948,7 @@ public class FAQServiceImpl implements FAQService, Startable {
   }
 
   /**
-   * @deprecated use {@link #saveAnswer(String questionId, Answer[] answers)}
+   * @deprecated use {@link #saveAnswer(String, Answer, boolean)}
    */
   public void saveAnswer(String questionId, Answer[] answers, SessionProvider sProvider) throws Exception {
     sProvider.close();

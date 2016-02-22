@@ -811,7 +811,7 @@ public class UIQuestions extends UIContainer {
 
   /**
    * this function is pick up from <code>ResponseQuestionActionListener</code> for reuse in <code>ViewQuestionActionListener</code>
-   * @param event
+   * @param context
    * @param questionId
    * @throws Exception
    */

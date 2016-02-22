@@ -19,7 +19,7 @@ public class Watch {
 
   /**
    * Register user name for watch
-   * @param userName  user name of user
+   * @param user  user name of user
    */
   public void setUser(String user) {
     this.user = user;

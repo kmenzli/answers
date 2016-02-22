@@ -1944,7 +1944,7 @@ public class JCRDataStorage implements DataStorage, FAQNodeTypes {
    * read property of the category by its name
    * @param categoryId id of the category
    * @param propertyName name of the property
-   * @param returnValue expected return-type. The supported class types are String[], String, Long, Boolean, Double and Date.  
+   * @param returnType expected return-type. The supported class types are String[], String, Long, Boolean, Double and Date.
    * @return 
    * @throws Exception
    */

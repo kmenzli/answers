@@ -198,7 +198,7 @@ public class Utils {
 
   /**
    * Build Xpath query for check has property existing.
-   * @param String property is the property of node
+   * @param property the property of node
    * @return String
    */
   public static String buildXpathHasProperty(String property) {

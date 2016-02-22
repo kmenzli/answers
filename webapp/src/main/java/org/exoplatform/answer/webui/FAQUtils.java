@@ -97,19 +97,17 @@ public class FAQUtils {
   }
 
   /**
-   * Find category which is already exist.<br/>
+   * Find category which is already exist.<br>
    * for example: when you are standing in category D in path: Root\A\B\C\D, you do some action (add new category, add question, go out to category C or B) but another moderator delete category C (or
-   * B, A). Then this function will be use to find the nearest category with category D (which is exist) and move you into this category.<br/>
-   * <u>Detail:</u><br/>
-   * the first, system get category C, if C is exist, you will be moved into C else jump to B and test again.<br/>
+   * B, A). Then this function will be use to find the nearest category with category D (which is exist) and move you into this category.<br>
+   * <u>Detail:</u><br>
+   * the first, system get category C, if C is exist, you will be moved into C else jump to B and test again.<br>
    * This processing is done until find a category already exist.
    * 
    * @param faqService_
    *          FAQ Service
    * @param fAQContainer
    *          UIAnswersContainer this component is used to updated data
-   * @param sessionProvider
-   *          SessionProvider
    * @throws Exception
    */
   public static void findCateExist(FAQService faqService_, UIAnswersContainer fAQContainer) throws Exception {
@@ -224,7 +222,6 @@ public class FAQUtils {
   /**
    * @param userName
    * @return Full name of user. The current user is implied if userName is null.
-   * @throws Exception
    */
   static public String getFullName(String userName) {
     try {
@@ -526,9 +523,9 @@ public class FAQUtils {
   /**
    * Get question URI by question id of question relative path.
    * 
-   * @param: param the question id or question relative path.
-   * @param: isAnswer is display form answer question or not.
-   * @return: the URI go to the question and show form answer or not.
+   * @param param the question id or question relative path.
+   * @param isAnswer is display form answer question or not.
+   * @return the URI go to the question and show form answer or not.
    * @throws Exception
   */
   public static String getQuestionURI(String param, boolean isAnswer) throws Exception {
@@ -539,9 +536,9 @@ public class FAQUtils {
   /**
    * Get question URL by question id of question relative path.
    * 
-   * @param: param the question id or question relative path.
-   * @param: isAnswer is display form answer question or not.
-   * @return: the URL go to the question and show form answer or not.
+   * @param param the question id or question relative path.
+   * @param isAnswer is display form answer question or not.
+   * @return the URL go to the question and show form answer or not.
    * @throws Exception
   */
   public static String getQuestionURL(String param, boolean isAnswer) throws Exception {
@@ -576,14 +573,15 @@ public class FAQUtils {
   
   /**
    * The class use for comparator Answers by markVotes.
-   * 
-   * @param: isASC the type of comparator.
-   *  + isASC == true: comparator by ascending
-   *  + isASC == false: comparator by descending
   */
   static public class VoteComparator implements Comparator<Answer> {
     protected boolean isASC = true;
 
+    /**
+     * @param isASC the type of comparator.
+     *  + isASC == true: comparator by ascending
+     *  + isASC == false: comparator by descending
+     */
     public VoteComparator(boolean isASC) {
       this.isASC = isASC;
     }

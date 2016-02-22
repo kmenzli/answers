@@ -645,7 +645,6 @@ public interface FAQService extends FAQServiceLegacy {
    * @param userId Name of the user.
    * @param cateId Id of the category.
    * @return The returned value is "true" if the user is watching the category. 
-   * @throws Exception
    * @LevelAPI Platform
    */
   public boolean isUserWatched(String userId, String cateId);
@@ -877,7 +876,6 @@ public interface FAQService extends FAQServiceLegacy {
    * 
    * @param questionPath Path to the question.
    * @param listLanguage A list of removed languages.
-   * @throws Exception
    * @LevelAPI Platform
    */
   public void removeLanguage(String questionPath, List<String> listLanguage);
@@ -987,7 +985,6 @@ public interface FAQService extends FAQServiceLegacy {
    * 
    * @param categoryPath Path to the category.
    * @return The returned value is "true" if the category has been watched. 
-   * @throws Exception
    * @LevelAPI Platform
    */
   public boolean hasWatch(String categoryPath);
@@ -1027,7 +1024,6 @@ public interface FAQService extends FAQServiceLegacy {
    * @param name Name of the category.
    * @param path Path to the category.
    * @return The returned value is "true" if the category has already existed.
-   * @throws Exception
    * @LevelAPI Platform
    */
   public boolean isCategoryExist(String name, String path);
