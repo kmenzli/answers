@@ -6,3 +6,5 @@ pom.xml.next
 release.properties
 *.iml
 .idea/
+transaction.log
+**/transaction.log
